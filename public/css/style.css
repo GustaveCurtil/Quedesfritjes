@@ -1,0 +1,248 @@
+*, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --margin: 60px;
+    --margin-mobile: 10px;
+    --max-width: 1200px;
+    --scrollbar:10px;
+    --scrollbar-mobile: 5px;
+}
+
+::-webkit-scrollbar {
+	width: var(--scrollbar);
+    position: absolute;
+    left: 0;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #cfcd48;
+}
+
+
+body {
+    width: 100vw;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+header {
+    width: 100%;
+    max-width: var(--max-width);
+    height: var(--margin);
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+
+}
+
+header a {
+    padding-right: var(--margin);
+}
+
+header a:last-of-type {
+    padding-right: 0;
+}
+
+.current, a:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 0.5px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.description {
+    display: none;
+    width: calc(var(--max-width));
+    position: absolute;
+    top: 0;
+    transform: translateY(var(--margin));
+    background-color: rgb(255, 255, 255);
+    line-height: calc(var(--margin) / 2);
+    font-weight: 200;
+
+}
+
+.scrollable {
+    width: calc(100% - var(--scrollbar));
+    height: calc(100svh - var(--margin)); 
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow-y: auto;
+}
+
+main {
+    width: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    height:max-content;
+}
+
+.column {
+    width: calc( (100% - (2 * var(--margin) ))/ 3);
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-right: var(--margin);
+
+}
+
+.column:last-of-type {
+    margin-right: 0;
+}
+
+img {
+    width: 100%;
+    object-fit:contain;
+    margin-bottom: var(--margin);
+}
+
+img:last-of-type {
+    margin-bottom: 0;
+}
+
+footer {
+    min-height: var(--margin);
+    width: 100%;
+    max-width: var(--max-width);
+
+    display: flex;
+    align-items: center;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .mobile {
+        display: inherit;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: calc( var(--margin-mobile) / 4);
+    }
+
+
+    header {
+        width: 100%;
+        padding: 0 var(--margin-mobile);
+    }
+
+    header {
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    a {
+        padding: 0;
+        text-decoration: underline;
+        text-underline-offset: 2px !important;
+        text-decoration-thickness: 0.1px !important;
+    }
+
+    .info {
+        text-decoration: none;
+    }
+
+    .info:hover, .info:active {
+        text-decoration: none;
+    }
+
+    .description {
+        display: none;
+        width: calc(100% - 2 * var(--margin-mobile));
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        min-width: 50%;
+        background-color: white;
+        padding: var(--margin-mobile);
+
+        position:absolute;
+        top: 50svh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+
+    .menu a {
+        padding: var(--margin-mobile);
+    }
+
+    .current {
+        text-decoration: none;
+    }
+
+    main, footer {
+        width: calc(100% - 2 * var(--margin-mobile));
+    }
+
+
+    .column {
+        width: calc( (100% - (2 * var(--margin-mobile) ))/ 3);
+        min-height: 100%;
+    
+        display: flex;
+        flex-direction: column;
+    
+        margin-right: var(--margin-mobile);
+    }
+    
+    .column:last-of-type {
+        margin-right: 0;
+    }
+
+    img {
+        width: 100%;
+        object-fit:contain;
+        margin-bottom: var(--margin-mobile);
+    }
+    
+    img:last-of-type {
+        margin-bottom: 0;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+
+        font-size: 16px;
+        height: var(--margin)
+    }
+}

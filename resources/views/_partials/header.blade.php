@@ -1,12 +1,11 @@
 <header>
     <div class="noire">
-        <h1><a href="/">Que des frites</a></h1>
     </div>
     <div class="jaune">
-        <h2>🖤💛❤️ <a href="/cuisine">Fritkot Osdosh</a> 🖤💛❤️</h2>
+        <h2>🖤💛❤️ <a href="/fritkot">Fritkot Osdosh</a> 🖤💛❤️</h2>
     </div>
     <div class="rouge">
-        <form action="/cuisine/logout" method="post">
+        <form action="/fritkot/logout" method="post" class="logout">
         @csrf
         <button>Log out</button>
         </form>

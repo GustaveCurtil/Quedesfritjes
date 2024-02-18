@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 
+
 :root {
+    --margin: 30px;
+    --margin-mobile: 10px;
+    --max-width: 600px;
     --scrollbar:10px;
-    --breedte: 1000px;
+    --scrollbar-mobile: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -28,7 +32,6 @@ body {
     align-items: center;
 
     overflow-x: hidden;
-    overflow-y: hidden;
 
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -57,7 +60,7 @@ body {
 }
 
 .login input {
-    height: 200px;
+    min-height: 200px;
     width: 330px;
     border-radius: 50%;
     border: none;
@@ -71,6 +74,7 @@ body {
 .login button {
     padding: 5px;
     margin: 10px;
+    width: auto;
 }
 
 /*/ / H E A D E R / /*/
@@ -92,33 +96,175 @@ a {
 }
 
 .noire, .rouge {
-    width: calc((100% - var(--breedte))/2);
-    text-align: center;
+    width: calc((100% - var(--max-width))/2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rouge form {
+    width: auto;
 }
 
 .jaune {
-    width: var(--breedte);
+    width: var(--max-width);
     text-align: center;
 }
 
-.rouge button {
-    padding: 10px;
+.logout button {
+    padding: 0 10px;
+    width: auto;
+    
 }
+
+
 
 /*/ / C U I S I N E  A L B U M S/ /*/
 
 .pages {
     width: 100%;
-    height: calc(100svh - 100px);
-    background-color: violet;
+    min-height: calc(100svh - 100px);
+    background-color: rgb(255, 255, 255);
 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.photos {
+    width: 100%;
+    height: calc(100svh - 100px);
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: center;
+   gap: var(--margin);
+}
+
 .commands {
-    height: 100px;
-    width: var(--breedte);
+    height: calc(3 * var(--margin));
+    padding: var(--margin);
+    margin: var(--margin) 0;
+    width: var(--max-width);
+    border: 2px black dotted;
+}
+
+form {
+    display: flex;
+    height: var(--margin);
+}
+
+input {
+    height: var(--margin);
+    font-size: 20px;
+    width: calc(100%  - var(--margin));
+    padding: 0 10px;
+}
+
+button{
+    height: var(--margin);
+    width: var(--margin);
+    
+}
+
+.page-wrapper {
+    width: var(--max-width);
+}
+
+.page {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: var(--margin) 0;
+    cursor: move;
+}
+
+.page.dragging {
+    background-color: #ffbcbc;
+}
+
+.page span {
+    padding: 0 var(--margin)
+}
+
+.savealbums {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.savealbums button {
+    min-height: var(--margin);
+}
+
+.commands:has(.albumeditor) {
+    height: auto;
+}
+
+.albumeditor {
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
+}
+
+.albumeditor input {
+    width: 100%;
+}
+
+.albumeditor textarea {
+    width: 100%;
+    height: calc(3 * var(--margin));
+    margin: calc(var(--margin) / 2) 0;
+    padding: 10px;
+    resize: vertical;
+}
+
+.commands:nth-child(2) {
+    margin-top: 0;
+}
+
+.hide {
+    opacity: 0.5;
+}
+
+.foto img {
+    width: 100%;
+    height: auto;
+    margin-top: var(--margin);
+    cursor: move;
     background-color: #cfcd48;
+}
+
+.column1, .column2, .column3 {
+    width: calc(((var(--max-width) - 2 * var(--margin)) / 3));
+}
+
+.columnwrapper {
+    width: 100%;
+    display: flex;
+    gap: var(--margin);
+}
+
+.photoeditor {
+    width: 100%;
+    display: flex;
+}
+
+.photoeditor img {
+    height: calc(2* var(--margin) );
+    width: auto;
+}
+
+.photoeditor form:not(.delete) {
+    width: auto;
+}
+
+.delete {
+    width: var(--margin);
+}
+
+.photoeditor textarea {
+    height: calc(2* var(--margin) );
 }

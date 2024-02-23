@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use App\Models\Photo;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,6 +15,7 @@ class AlbumController extends Controller
             'name' => $request->name,
             'description' => null,
             'order_number' => Album::count() + 1, // Assuming a specific order number
+            'slug' => Str::slug($request->name),
             'visible' => true // or false, depending on the visibility
         ]);
 
@@ -22,6 +24,10 @@ class AlbumController extends Controller
 
     public function showAlbums() {
         $albums = Album::orderBy('order_number')->get();
+        
+        foreach ($albums as $album) {
+            $album->amount = Photo::where('album_id', $album->id)->count();
+        }
 
         return view('fritkot', ['albums' => $albums]);
     }

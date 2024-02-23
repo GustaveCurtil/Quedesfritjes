@@ -248,8 +248,10 @@ button{
 }
 
 .photoeditor {
+    position: relative;
     width: 100%;
     display: flex;
+    margin-bottom: var(--margin);
 }
 
 .photoeditor img {
@@ -260,11 +262,28 @@ button{
 .photoeditor form:not(.delete) {
     width: auto;
 }
-
+.commando {
+    width: 100%;
+}
 .delete {
     width: var(--margin);
 }
 
 .photoeditor textarea {
     height: calc(2* var(--margin) );
+    width: calc(100% - var(--margin));
+    resize: none;
+}
+
+.photoeditor .delete {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.kbsize {
+    position: absolute;
+    right: 0;
+    transform: translate(100%, 50%);
+    padding-left: 10px;
 }

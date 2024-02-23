@@ -32,7 +32,7 @@
             <div class="page hide" draggable="true">
             @endif
                 <a href="/fritkot/{{$album->id}}"><h2>{{$album->name}}</h2></a>
-                <span>(12)</span> 
+                <span>({{ $album->amount }})</span> 
                 <form style='display:none'></form>
                 <form action="/hide/{{$album->id}}/" method="post" id="hideForm{{$album->id}}">
                     @csrf

@@ -2,9 +2,11 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\NavigationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +19,13 @@ use App\Http\Controllers\PhotoController;
 |
 */
 
-Route::get('/', function () {
-    return view('blog');
-});
+Route::get('/', [NavigationController::class, 'show']);
 
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 Route::get('/fritkot', [AlbumController::class, 'showAlbums']);
+Route::get('/{slug}', [NavigationController::class, 'show']);
 Route::get('/fritkot/{album}', [PhotoController::class, 'showPhotos']);
 
 Route::post('/fritkot/login', [UserController::class, 'login']);
@@ -37,3 +41,4 @@ Route::post('/fritkot/{album}/add-photos', [PhotoController::class, 'addPhotos']
 Route::delete('/delete-photo/{photo}', [PhotoController::class, 'deletePhoto']);
 Route::put('/edit/{photo}', [PhotoController::class, 'editPhoto']);
 Route::post('/photoorder/{album}', [PhotoController::class, 'savePhotoOrder']);
+

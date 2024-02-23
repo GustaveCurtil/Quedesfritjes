@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('description')->nullable();
             $table->integer('order_number');
+            $table->string('slug')->unique();
             $table->boolean('visible')->default(true);
             $table->timestamps();
         });

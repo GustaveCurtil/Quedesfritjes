@@ -12,6 +12,14 @@
 </head>
 <body>
     <header class="desktop">
+
+        @foreach ($albums as $album)
+        <a href="" class="current info">{{$album->name}}</a>
+        <div class="description">{{$album->description}}</div>
+        @endforeach
+
+
+
         <a href="" class="current info">pagina 1</a>
         <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus sapiente, fuga, aliquid vero ipsam necessitatibus quisquam repellendus accusantium rerum quos magnam veniam enim. Aliquid saepe debitis accusantium cum facilis asperiores!</div>
         <a href="" class="info">pagina 2</a>

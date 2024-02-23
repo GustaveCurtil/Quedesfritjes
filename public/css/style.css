@@ -12,15 +12,6 @@
     --scrollbar-mobile: 5px;
 }
 
-::-webkit-scrollbar {
-	width: var(--scrollbar);
-    position: absolute;
-    left: 0;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: #cfcd48;
-}
 
 
 body {
@@ -148,10 +139,6 @@ footer {
         display: none;
     }
 
-    ::-webkit-scrollbar {
-        width: calc( var(--margin-mobile) / 4);
-    }
-
 
     header {
         width: 100%;
@@ -188,8 +175,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        min-width: 50%;
+        min-width: 60%;
         background-color: white;
         padding: var(--margin-mobile);
 
@@ -245,4 +231,23 @@ footer {
         font-size: 16px;
         height: var(--margin)
     }
+
+    .scrollable {
+        margin-left: 0 !important;
+    }
+
+}
+
+@media screen and (min-width: 800px) {
+
+    ::-webkit-scrollbar {
+        width: var(--scrollbar);
+        position: absolute;
+        left: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #cfcd48;
+    }
+
 }

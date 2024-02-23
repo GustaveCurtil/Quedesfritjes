@@ -51,16 +51,19 @@
             <div class="editor">
                 @foreach ($photos as $photo)
                 <div class="photoeditor">
-                <img src="/storage/{{$photo->path}}" alt="">     
-                <form action="/edit/{{$photo->id}}" method="post">
-                    @csrf
-                <textarea name='description'>{{$photo->description}}</textarea>
-                @method('PUT')
-                <button>✏️</button></form>
-                <form action="/delete-photo/{{$photo->id}}" method="post" class="delete">
-                    @csrf
-                    @method('DELETE')
-                <button>🗑️</button></form>
+                    <img src="/storage/{{$photo->path}}" alt="">     
+                    <div class="commando">
+                        <form action="/edit/{{$photo->id}}" method="post">
+                        @csrf
+                        <textarea name='description'>{{$photo->description}}</textarea>
+                        @method('PUT')
+                        <button>✏️</button></form>
+                        <form action="/delete-photo/{{$photo->id}}" method="post" class="delete">
+                        @csrf
+                        @method('DELETE')
+                        <button>🗑️</button></form>
+                    </div>
+                    <div class="kbsize">{{$photo->size_kb}}kb</div>
                 </div>
                 @endforeach
             </div>

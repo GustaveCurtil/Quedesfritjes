@@ -42,6 +42,9 @@
         @endisset
     </header>
 
+    <div class="zoom">
+    </div>
+
     <div class="scrollable">
         <main>
             @isset($photos) 
@@ -68,6 +71,7 @@
             </div>
             @endisset
         </main>
+
         <footer>
             <p>photos <a href="mailto:oscar.curtil@gmail.com">Oscar</a> 
                 <a href="/fritkot" style="text-decoration: none;">🍟</a> 

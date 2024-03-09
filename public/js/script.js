@@ -65,3 +65,25 @@ let scrolling = scrollable.scrollHeight > scrollable.clientHeight;
 if (scrolling) {
     scrollable.style.marginLeft= "var(--scrollbar)";
 }
+
+let images = document.querySelectorAll(".scrollable img")
+let zoom = document.querySelector(".zoom")
+
+zoom.addEventListener('click', (e) => {
+
+        zoom.style.display = "none";
+        zoom.innerHTML = "";
+
+})
+
+images.forEach(image => {
+    image.addEventListener('click', () => {
+        zoom.style.display = "flex";
+        let chosenPhoto = document.createElement('img')
+        chosenPhoto.src = image.src
+        zoom.appendChild(chosenPhoto)
+        console.log(image.src)
+    })    
+});
+
+

@@ -42,28 +42,6 @@
         @endisset
     </header>
 
-    {{-- <header class="desktop">
-        @if (isset($albums) && $albums->count() > 0)
-            @foreach ($albums as $album)
-                @if ($page->id === $album->id)
-                    @if ($album->order === 1)
-                        <a href="/" class="current">{{$album->title}}</a>
-                    @else
-                        <a href="/{{$album->slug}}" class="current">{{$album->title}}</a>     
-                    @endif 
-                @else
-                    @if ($album->order === 1)
-                        <a href="/">{{$album->title}}</a>
-                    @else
-                        <a href="/{{$album->slug}}">{{$album->title}}</a>     
-                    @endif 
-                @endif 
-            @endforeach
-        @else
-        <!-- Handle the case when $albums is null or empty -->
-            Que des fritjes
-        @endif
-    </header> --}}
     <div class="scrollable">
         <main>
             @isset($photos) 
@@ -93,7 +71,7 @@
         <footer>
             <p>photos <a href="mailto:oscar.curtil@gmail.com">Oscar</a> 
                 <a href="/fritkot" style="text-decoration: none;">🍟</a> 
-                site <a href="mailto:Gustave.curtil@tutanota.com">Gustave</a></p>
+                site <a href="https://kurtgustil.netlify.app/" target="_blank">Gustave</a></p>
         </footer>
     </div>
 </body>
